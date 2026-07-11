@@ -1,0 +1,6 @@
+# Pipeline dependencies (GitHub extraction and LLM validation).
+requests>=2.32
+python-dotenv>=1.0
+httpx>=0.27
+ollama>=0.3
+langid>=1.1.6

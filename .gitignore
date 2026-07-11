@@ -1,0 +1,24 @@
+# Secrets
+.env
+.env.save
+.env.save.*
+*.env.save
+pipeline/.env
+
+# Runtime state and outputs
+experiments/
+pipeline/config/current_experiment.txt
+
+# Logs
+slurm-*.out
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

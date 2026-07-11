@@ -1,0 +1,415 @@
+/* ============================================================
+   USER STORY ANALYZER — Design System
+   Inspired by Linear / Vercel / Supabase
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* --- Design tokens --- */
+:root {
+    --bg-primary: #0A0B0F;
+    --bg-secondary: #12141C;
+    --bg-elevated: #1A1D29;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-default: rgba(255, 255, 255, 0.1);
+    --text-primary: #F4F5F7;
+    --text-secondary: #A0A3AE;
+    --text-muted: #6B6E7A;
+    --accent-violet: #8B5CF6;
+    --accent-cyan: #06B6D4;
+    --accent-pink: #EC4899;
+    --accent-amber: #F59E0B;
+    --accent-green: #10B981;
+    --glow-violet: rgba(139, 92, 246, 0.4);
+}
+
+/* --- Base overrides --- */
+html, body, [class*="css"], .stApp {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* Numbers and metrics in elegant monospace */
+[data-testid="stMetricValue"],
+.metric-big,
+code, pre {
+    font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace !important;
+    font-feature-settings: "ss01", "ss02";
+}
+
+/* --- App background with radial glows --- */
+.stApp {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.08), transparent),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(6, 182, 212, 0.05), transparent),
+        var(--bg-primary);
+    background-attachment: fixed;
+}
+
+/* --- Top padding of the main content to avoid clipping --- */
+.main .block-container {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1400px;
+}
+
+/* --- Main Home title with animated gradient (large) --- */
+h1.hero-title,
+.hero-title {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    background: linear-gradient(120deg,
+        #8B5CF6 0%,
+        #06B6D4 50%,
+        #EC4899 100%) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: gradient-shift 8s ease infinite !important;
+    margin-bottom: 0.25rem !important;
+    display: inline-block;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+/* --- Inner page title (more compact) --- */
+.page-hero-wrap {
+    margin-bottom: 1.5rem;
+}
+
+h1.page-hero-title,
+.page-hero-title {
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em !important;
+    background: linear-gradient(120deg,
+        #8B5CF6 0%,
+        #06B6D4 50%,
+        #EC4899 100%) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    animation: gradient-shift 12s ease infinite !important;
+    margin-bottom: 0.25rem !important;
+    display: inline-block;
+}
+
+.page-hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* --- Headings standard --- */
+h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em !important;
+    color: var(--text-primary) !important;
+}
+
+h2 { font-size: 1.75rem !important; margin-top: 2rem !important; }
+h3 { font-size: 1.25rem !important; }
+
+/* --- Metric cards (st.metric) --- */
+[data-testid="stMetric"] {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-testid="stMetric"]:hover {
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+    box-shadow:
+        0 20px 40px -20px rgba(0, 0, 0, 0.5),
+        0 0 30px -10px var(--glow-violet);
+}
+
+[data-testid="stMetricValue"] {
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.02em !important;
+}
+
+[data-testid="stMetricLabel"] {
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stMetricDelta"] {
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+/* --- Sidebar --- */
+[data-testid="stSidebar"] {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-subtle);
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+    color: var(--text-secondary);
+}
+
+/* --- Buttons --- */
+.stButton > button {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--border-default) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 0.5rem 1.25rem !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%) !important;
+    border: none !important;
+    box-shadow: 0 4px 12px -2px var(--glow-violet) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    box-shadow:
+        0 6px 20px -2px var(--glow-violet),
+        0 0 30px -5px var(--glow-violet) !important;
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* --- Input fields --- */
+.stTextInput input, .stNumberInput input, .stTextArea textarea {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 10px !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif !important;
+    transition: all 0.2s ease !important;
+}
+
+.stTextInput input:focus, .stNumberInput input:focus, .stTextArea textarea:focus {
+    border-color: var(--accent-violet) !important;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* --- Selectbox --- */
+.stSelectbox > div > div {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 10px !important;
+}
+
+/* --- Multiselect --- */
+.stMultiSelect > div > div {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 10px !important;
+}
+
+/* --- Slider --- */
+.stSlider [data-baseweb="slider"] > div > div {
+    background: var(--accent-violet) !important;
+}
+
+/* --- Tabs --- */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 4px;
+    background: transparent;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: transparent;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 20px;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stTabs [aria-selected="true"] {
+    color: var(--accent-violet) !important;
+    border-bottom: 2px solid var(--accent-violet);
+}
+
+/* --- Dataframe / tables --- */
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* --- Expander --- */
+.streamlit-expanderHeader {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 10px !important;
+    font-weight: 500 !important;
+}
+
+/* --- Alerts (info, success, warning, error) --- */
+[data-testid="stAlert"] {
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(8px);
+}
+
+/* --- More elegant divider --- */
+hr {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--border-default),
+        transparent) !important;
+    margin: 1rem 0 !important;
+}
+
+/* --- Spinner --- */
+.stSpinner > div {
+    border-top-color: var(--accent-violet) !important;
+}
+
+/* --- Code blocks inline --- */
+code {
+    background: var(--bg-elevated) !important;
+    color: var(--accent-cyan) !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-size: 0.875em !important;
+}
+
+/* --- Custom glass card utility --- */
+.glass-card {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+}
+
+/* --- Badge accent --- */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: rgba(139, 92, 246, 0.15);
+    color: var(--accent-violet);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-cyan {
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--accent-cyan);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.badge-green {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-green);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* --- Chat message bubbles --- */
+[data-testid="stChatMessage"] {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 14px !important;
+    padding: 14px 18px !important;
+}
+
+/* --- Chat input --- */
+.stChatInput textarea {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-default) !important;
+    border-radius: 14px !important;
+}
+
+/* --- Link buttons --- */
+[data-testid="stLinkButton"] a {
+    border-radius: 10px !important;
+    transition: all 0.2s ease !important;
+}
+
+[data-testid="stLinkButton"] a:hover {
+    transform: translateY(-1px);
+}
+
+/* --- Radio --- */
+.stRadio [role="radiogroup"] label {
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.stRadio [role="radiogroup"] label:hover {
+    background: rgba(139, 92, 246, 0.08);
+}
+
+/* --- Hide Streamlit footer --- */
+footer { visibility: hidden; }
+#MainMenu { visibility: hidden; }
+
+/* --- Scrollbar custom (Webkit) --- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-elevated);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-default);
+}
