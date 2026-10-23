@@ -8,9 +8,8 @@
 This repository accompanies the paper *"STORY2DIFF: A Dataset Linking Real-World User Stories to Code Changes"*, submitted to the
 ICSE 2027 Demonstrations and Data Showcase track.
 
-- **Dataset:** release [`v4.0.1`](https://github.com/riganelli/user-story-mining-pipeline/releases/tag/v4.0.1) <!-- TODO: add Zenodo DOI if archived -->
-- **Video:** <!-- TODO: YouTube link -->
-
+- **Dataset:** release [`v4.0.1`](https://github.com/riganelli/user-story-mining-pipeline/releases/tag/V4.0.)
+  
 ## What this is
 
 The project crawls GitHub looking for issues that contain **user
