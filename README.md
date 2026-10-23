@@ -1,8 +1,15 @@
-# User Story Mining Pipeline
+# STORY2DIFF — User Story Mining Pipeline
 
-> A pipeline that extracts user stories in Connextra format from GitHub
-> repositories, linking each one to the Pull Request that implemented
-> it. The output is a structured dataset designed for research analysis.
+> A dataset of real-world user stories linked to their implementations,
+> and the pipeline that builds it. Each record connects a Connextra user
+> story written in a GitHub issue to the merged pull request that closed
+> it, its commit history, and the file-level code changes.
+
+This repository accompanies the paper *"STORY2DIFF: A Dataset Linking Real-World User Stories to Code Changes"*, submitted to the
+ICSE 2027 Demonstrations and Data Showcase track.
+
+- **Dataset:** release [`v4.0.1`](https://github.com/riganelli/user-story-mining-pipeline/releases/tag/v4.0.1) <!-- TODO: add Zenodo DOI if archived -->
+- **Video:** <!-- TODO: YouTube link -->
 
 ## What this is
 
@@ -158,8 +165,4 @@ points for each audience are:
 
 ## Context
 
-This project was built during a university internship at the
-University of Milano-Bicocca. The goal is to produce a research-grade
-dataset of user stories linked to their implementations, useful for
-studying how natural-language requirements translate into code
-changes.
+This project was developed at the University of Milano-Bicocca.
